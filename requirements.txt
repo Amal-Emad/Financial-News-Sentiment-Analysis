@@ -1,0 +1,13 @@
+torch
+transformers
+pandas
+scipy
+flask
+sklearn
+pandas
+matplotlib
+seaborn
+scipy
+nltk
+flask
+PyPDF2

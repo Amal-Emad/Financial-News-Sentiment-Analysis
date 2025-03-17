@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial News Sentiment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<canvas id="moneyCanvas"></canvas>
+
+<div class="container">
+    <h1>📈 Financial News Sentiment Analysis</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="news_headline" placeholder="Enter a news headline..." class="input-field">
+        <input type="file" name="file" accept=".csv, .pdf" class="file-input">
+        <button type="submit" class="btn">Analyze</button>
+    </form>
+
+    {% if news_data %}
+        <h2>Ranked News Analysis</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Headline</th>
+                        <th>Sentiment</th>
+                        <th>Confidence</th>
+                        <th>Impact Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for news in news_data %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ news[0] }}</td>
+                        <td class="{{ news[1] }}">{{ news[1] }}</td>
+                        <td>{{ "%.2f"|format(news[2]) }}</td>
+                        <td>{{ "%.2f"|format(news[3]) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+</div>
+
+
+<footer>
+    <p>Made by Amal Alkraimeen © 2025</p>
+</footer>
+
+<script src="{{ url_for('static', filename='background.js') }}"></script>
+</body>
+</html>
