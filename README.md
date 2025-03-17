@@ -62,7 +62,7 @@ financial-news-analysis/
 
 ### 1️⃣ Clone the Repository
 ```sh
-git clone https://github.com/your-repo/financial-news-analysis.git
+git clone https://github.com/Amal-Emad/Financial-News-Sentiment-Analysis.git
 ```
 ```sh
 cd financial-news-analysis
